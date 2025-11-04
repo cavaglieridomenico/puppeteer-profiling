@@ -1,0 +1,20 @@
+{
+  "name": "puppeteer-profiling",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node connect.js",
+    "navigate": "node connect.js",
+    "trace:start": "curl http://localhost:8080/trace:start",
+    "trace:stop": "curl http://localhost:8080/trace:stop"
+  },
+  "dependencies": {
+    "puppeteer": "24.28.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
