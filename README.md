@@ -1,4 +1,4 @@
-# Puppeteer Profiling on Android
+# Puppeteer Profiling
 
 This project provides a setup to connect Puppeteer to a Chrome instance running on an Android device, allowing for remote debugging and performance tracing.
 
@@ -6,9 +6,9 @@ This project provides a setup to connect Puppeteer to a Chrome instance running 
 
 Before you begin, ensure you have the following installed:
 
-*   **Node.js and npm:** [Download and install Node.js](https://nodejs.org/en/download/)
-*   **Android Debug Bridge (ADB):** Part of the Android SDK Platform-Tools. Ensure `adb` is accessible in your system's PATH.
-*   **A physical Android device:** With USB debugging enabled and connected to your computer.
+- **Node.js and npm:** [Download and install Node.js](https://nodejs.org/en/download/)
+- **Android Debug Bridge (ADB):** Part of the Android SDK Platform-Tools. Ensure `adb` is accessible in your system's PATH.
+- **A physical Android device:** With USB debugging enabled and connected to your computer.
 
 ## Setup
 
@@ -56,8 +56,8 @@ Run the main script. This will connect Puppeteer to your device and start a loca
 npm start
 ```
 
-*   If no URL is provided, it will list the currently open tabs on your device.
-*   The script will keep the connection alive. To stop it, press `Ctrl+C`.
+- If no URL is provided, it will list the currently open tabs on your device.
+- The script will keep the connection alive. To stop it, press `Ctrl+C`.
 
 ### 2. Navigate to a specific URL (Optional)
 
@@ -71,22 +71,23 @@ npm start -- http://example.com
 
 While `npm start` is running in your first terminal, you can use a second terminal to send commands to start and stop performance tracing.
 
-*   **To start a trace:**
-    ```bash
-    npm run trace:start
-    ```
+- **To start a trace:**
 
-*   **To stop a trace:**
-    ```bash
-    npm run trace:stop
-    ```
+  ```bash
+  npm run trace:start
+  ```
+
+- **To stop a trace:**
+  ```bash
+  npm run trace:stop
+  ```
 
 Trace files will be saved in your project directory with progressive numbering (e.g., `trace-0.json`, `trace-1.json`).
 
 ## Troubleshooting
 
-*   **"Cannot connect to the device" error:**
-    *   Ensure your Android device is connected and USB debugging is enabled.
-    *   Verify `adb devices` lists your device.
-    *   Confirm that `adb forward tcp:9222 localabstract:chrome_devtools_remote` was executed successfully and Chrome is running on your device.
-*   **`curl` command not found:** If you are on Windows, you might need to use `Invoke-WebRequest` in PowerShell or install `curl` for Windows.
+- **"Cannot connect to the device" error:**
+  - Ensure your Android device is connected and USB debugging is enabled.
+  - Verify `adb devices` lists your device.
+  - Confirm that `adb forward tcp:9222 localabstract:chrome_devtools_remote` was executed successfully and Chrome is running on your device.
+- **`curl` command not found:** If you are on Windows, you might need to use `Invoke-WebRequest` in PowerShell or install `curl` for Windows.
