@@ -11,7 +11,7 @@
     *   Saves trace files with progressive numbering (e.g., `trace-0.json`).
     *   Added support for "mobile" and "desktop" modes:
         *   "mobile" mode connects to a Chrome instance on an Android device.
-        *   "desktop" mode launches a local Chrome Incognito instance.
+        *   "desktop" mode launches a local Chrome instance (previously Incognito).
 *   `package.json`: Added `trace:start` and `trace:stop` npm scripts for convenience.
     *   Updated `package.json` with `start:mobile` and `start:desktop` scripts.
 *   `.gitignore`: Added to ignore `node_modules/` and `trace-*.json` files.

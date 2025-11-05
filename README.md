@@ -62,7 +62,7 @@ You can start the script in either **mobile** or **desktop** mode. The command s
 
   If no URL is provided, it will list the currently open tabs on your device.
 
-- **Desktop Mode:** Launches a new local Chrome Incognito instance.
+- **Desktop Mode:** Launches a new local Chrome instance.
   ```bash
   npm run start:desktop
   ```

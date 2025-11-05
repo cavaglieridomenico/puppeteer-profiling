@@ -54,10 +54,10 @@ function getNextTraceNumber() {
       console.log('Connected to mobile browser!');
 
     } else if (mode === 'desktop') {
-      console.log('Launching desktop Chrome (incognito)...');
+      console.log('Launching desktop Chrome...');
       browserInstance = await puppeteer.launch({
         headless: false, // Set to true for headless mode
-        args: ['--incognito'],
+        args: [],
       });
       console.log('Desktop Chrome launched!');
 
