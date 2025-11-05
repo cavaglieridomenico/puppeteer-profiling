@@ -57,7 +57,8 @@ function getNextTraceNumber() {
       console.log('Launching desktop Chrome...');
       browserInstance = await puppeteer.launch({
         headless: false, // Set to true for headless mode
-        args: [],
+        args: ['--start-maximized'],
+        defaultViewport: null, // Ensure desktop rendering
       });
       console.log('Desktop Chrome launched!');
 
