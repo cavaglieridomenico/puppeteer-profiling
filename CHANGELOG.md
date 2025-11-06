@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 1.2.2
+
+### Added
+
+- Added source maps to profiled traces.
+
 ## 1.2.1
 
 ### Changed

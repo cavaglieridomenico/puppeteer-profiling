@@ -106,6 +106,7 @@ function getNextTraceNumber() {
           await pageForTracing.tracing.start({
             path: tracePath,
             screenshots: true,
+            includeSourceMaps: true,
           });
           res.writeHead(200, { 'Content-Type': 'text/plain' });
           res.end(`Tracing started. Saving to ${tracePath}\n`);
