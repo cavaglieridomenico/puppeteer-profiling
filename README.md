@@ -101,6 +101,16 @@ While the main script (`npm start`, `npm run start:mobile`, or `npm run start:de
 
 Trace files will be saved in your project directory with progressive numbering (e.g., `trace-0.json`, `trace-1.json`).
 
+### 4. Open DevTools for Mobile
+
+You can open a new Chrome window with `chrome://inspect` to help with debugging mobile devices.
+
+- **To open DevTools:**
+
+  ```bash
+  npm run devtools:mobile
+  ```
+
 ## Enabling Memory Profiling on Mobile
 
 For mobile devices, you need to manually enable memory profiling in Chrome before you can capture a trace with heap data. Here are the steps:

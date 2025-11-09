@@ -1,5 +1,6 @@
 const http = require('http');
 const fs = require('fs');
+const { openDevTools } = require('./browser');
 
 let traceCounter = 0;
 
@@ -35,14 +36,10 @@ function startCommandServer(pageForTracing) {
         await pageForTracing.tracing.stop();
         res.writeHead(200, { 'Content-Type': 'text/plain' });
         res.end(`Tracing stopped. File trace-${traceCounter}.json saved.\n`);
-        console.log(
-          `Tracing stopped. File trace-${traceCounter}.json saved.`
-        );
+        console.log(`Tracing stopped. File trace-${traceCounter}.json saved.`);
       } else {
         res.writeHead(404, { 'Content-Type': 'text/plain' });
-        res.end(
-          'No page available for tracing (was tracing ever started?).\n'
-        );
+        res.end('No page available for tracing (was tracing ever started?).\n');
         console.log(
           'No page available for tracing (was tracing ever started?).'
         );
@@ -58,6 +55,17 @@ function startCommandServer(pageForTracing) {
         res.end('No page available for refreshing.\n');
         console.log('No page available for refreshing.');
       }
+    } else if (req.url === '/devtools:mobile') {
+      (async () => {
+        try {
+          await openDevTools();
+        } catch (err) {
+          console.error('Error opening DevTools:', err);
+        }
+      })();
+      res.writeHead(200, { 'Content-Type': 'text/plain' });
+      res.end('DevTools instance starting...\n');
+      console.log('DevTools instance starting...');
     } else {
       res.writeHead(404, { 'Content-Type': 'text/plain' });
       res.end(
@@ -72,6 +80,9 @@ function startCommandServer(pageForTracing) {
     console.log('  - Send GET to /trace:start to begin tracing.');
     console.log('  - Send GET to /trace:stop to end tracing.');
     console.log('  - Send GET to /navigate:refresh to refresh the page.');
+    console.log(
+      '  - Send GET to /devtools:mobile to open a new Chrome window with devtools.'
+    );
   });
 }
 

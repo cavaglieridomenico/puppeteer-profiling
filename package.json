@@ -1,6 +1,6 @@
 {
   "name": "puppeteer-profiling",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Puppeteer Profiling",
   "main": "index.js",
   "scripts": {
@@ -11,6 +11,7 @@
     "trace:start": "curl http://localhost:8080/trace:start",
     "trace:stop": "curl http://localhost:8080/trace:stop",
     "navigate:refresh": "curl http://localhost:8080/navigate:refresh",
+    "devtools:mobile": "curl http://localhost:8080/devtools:mobile",
     "format": "prettier --write ."
   },
   "dependencies": {

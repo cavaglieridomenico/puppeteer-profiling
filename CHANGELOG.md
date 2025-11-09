@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 1.2.4
+
+### Added
+
+- Added a command to open a new Chrome window with `chrome://inspect` to help with debugging mobile devices.
+
 ## 1.2.3
 
 ### Refactored
