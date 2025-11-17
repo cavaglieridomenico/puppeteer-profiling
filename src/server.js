@@ -210,7 +210,7 @@ function startCommandServer(pageForTracing) {
     } else {
       res.writeHead(404, { 'Content-Type': 'text/plain' });
       res.end(
-        'Not Found. Use /trace:start, /trace:stop, /navigate:refresh, or /input:tap-vm-video, /input:tap-vm-vmp-continue, /input:tap-vm-vmp-rec, /input:tap-vm-multivm-open, or /input:tap-vm-multivm-close\n'
+        'Not Found. See README.md for a full list of available commands.\n'
       );
     }
   });

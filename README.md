@@ -47,6 +47,20 @@ Before you begin, ensure you have the following installed:
 
 Once the setup is complete, you can use the `index.js` script to interact with Chrome on your Android device or a local desktop Chrome instance.
 
+## Command List
+
+The command server runs on port `8080` and accepts the following commands:
+
+-   `/trace:start`: Starts a performance trace.
+-   `/trace:stop`: Stops the current trace.
+-   `/navigate:refresh`: Refreshes the current page.
+-   `/devtools:mobile`: Opens a Chrome DevTools instance for the mobile device.
+-   `/input:tap-vm-video`: Sends a tap event for the VM video.
+-   `/input:tap-vm-vmp-continue`: Sends a tap event to continue in the VMP.
+-   `/input:tap-vm-vmp-rec`: Sends a tap event to record in the VMP.
+-   `/input:tap-vm-multivm-open`: Sends a tap event to open the multi-VM view.
+-   `/input:tap-vm-multivm-close`: Sends a tap event to close the multi-VM view.
+
 ### 1. Start the Puppeteer connection and command server
 
 You can start the script in either **mobile** or **desktop** mode. The command server for tracing will always run on port `8080`.
