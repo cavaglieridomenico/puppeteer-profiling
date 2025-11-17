@@ -56,17 +56,4 @@ async function initializeBrowser(mode) {
   return browserInstance;
 }
 
-async function openDevTools() {
-  console.log('Launching Chrome for DevTools...');
-  const browser = await puppeteer.launch({
-    headless: false,
-    args: ['--start-maximized', '--use-fake-ui-for-media-stream'],
-    defaultViewport: null, // Ensure desktop rendering
-  });
-  const page = (await browser.pages())[0];
-  await page.goto('chrome://inspect/#devices');
-  browser.disconnect();
-  console.log('Chrome for DevTools launched!');
-}
-
-module.exports = { initializeBrowser, openDevTools };
+module.exports = { initializeBrowser };

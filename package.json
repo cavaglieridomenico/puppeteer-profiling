@@ -4,7 +4,7 @@
   "description": "Puppeteer Profiling",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"No test specified\"",
     "start": "node index.js",
     "start:mobile": "node index.js mobile",
     "start:desktop": "node index.js desktop",
@@ -12,6 +12,11 @@
     "trace:stop": "curl http://localhost:8080/trace:stop",
     "navigate:refresh": "curl http://localhost:8080/navigate:refresh",
     "devtools:mobile": "curl http://localhost:8080/devtools:mobile",
+    "input:tap-vm-video": "curl http://localhost:8080/input:tap-vm-video",
+    "input:tap-vm-vmp-continue": "curl http://localhost:8080/input:tap-vm-vmp-continue",
+    "input:tap-vm-vmp-rec": "curl http://localhost:8080/input:tap-vm-vmp-rec",
+    "input:tap-vm-multivm-open": "curl http://localhost:8080/input:tap-vm-multivm-open",
+    "input:tap-vm-multivm-close": "curl http://localhost:8080/input:tap-vm-multivm-close",
     "format": "prettier --write ."
   },
   "dependencies": {

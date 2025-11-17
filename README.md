@@ -84,9 +84,9 @@ You can instruct the script to open a new tab and navigate to a specific URL.
   npm run start:desktop -- http://example.com
   ```
 
-### 3. Control Tracing (from a **second terminal**)
+### 3. Control Tracing and Input (from a **second terminal**)
 
-While the main script (`npm start`, `npm run start:mobile`, or `npm run start:desktop`) is running in your first terminal, you can use a second terminal to send commands to start and stop performance tracing.
+While the main script (`npm start`, `npm run start:mobile`, or `npm run start:desktop`) is running in your first terminal, you can use a second terminal to send commands to start and stop performance tracing, and to send input events.
 
 - **To start a trace:**
 
@@ -97,6 +97,24 @@ While the main script (`npm start`, `npm run start:mobile`, or `npm run start:de
 - **To stop a trace:**
   ```bash
   npm run trace:stop
+  ```
+
+- **To send a tap event for VM video:**
+
+  ```bash
+  npm run input:tap-vm-video
+  ```
+
+- **To send a tap event to continue in the VMP:**
+
+  ```bash
+  npm run input:tap-vm-vmp-continue
+  ```
+
+- **To send a tap event to record in the VMP:**
+
+  ```bash
+  npm run input:tap-vm-vmp-rec
   ```
 
 Trace files will be saved in your project directory with progressive numbering (e.g., `trace-0.json`, `trace-1.json`).
