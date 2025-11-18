@@ -61,69 +61,7 @@ function startCommandServer(pageForTracing) {
         res.end('No page available for refreshing.\n');
         console.log('No page available for refreshing.');
       }
-    } else if (pathname === '/devtools:mobile') {
-      res.writeHead(200, { 'Content-Type': 'text/plain' });
-      res.end('DevTools instance starting...\n');
-      console.log('DevTools instance starting...');
-
-      (async () => {
-        let devtoolsUrl;
-        try {
-          const browser = pageForTracing.browser();
-          const wsEndpoint = browser.wsEndpoint();
-          const hostMatch = wsEndpoint.match(/ws:\/\/([^/]+)/);
-          if (!hostMatch) {
-            throw new Error(
-              'Could not determine host from WebSocket endpoint.'
-            );
-          }
-          const host = hostMatch[1];
-
-          const targetsResponse = await new Promise((resolve, reject) => {
-            http
-              .get(`http://${host}/json/list`, (res) => {
-                let data = '';
-                res.on('data', (chunk) => (data += chunk));
-                res.on('end', () => {
-                  try {
-                    resolve(JSON.parse(data));
-                  } catch (e) {
-                    reject(e);
-                  }
-                });
-              })
-              .on('error', reject);
-          });
-
-          const pageUrl = pageForTracing.url();
-          const pageTargetInfo = targetsResponse.find(
-            (t) => t.type === 'page' && t.url === pageUrl
-          );
-
-          if (pageTargetInfo && pageTargetInfo.devtoolsFrontendUrl) {
-            devtoolsUrl = `http://${host}${pageTargetInfo.devtoolsFrontendUrl}`;
-          } else {
-            // Fallback for about:blank or other cases
-            const firstPage = targetsResponse.find((t) => t.type === 'page');
-            if (firstPage && firstPage.devtoolsFrontendUrl) {
-              devtoolsUrl = `http://${host}${firstPage.devtoolsFrontendUrl}`;
-            }
-          }
-        } catch (err) {
-          console.error('Error getting specific DevTools URL:', err.message);
-        }
-
-        if (devtoolsUrl) {
-          console.log(`Opening DevTools at: ${devtoolsUrl}`);
-          exec(`start "" "${devtoolsUrl}"`);
-        } else {
-          console.log(
-            'Could not determine specific DevTools URL, opening generic inspector.'
-          );
-          exec('start chrome://inspect/#devices');
-        }
-      })();
-    } else if (pathname === '/input:tap-vm-video') {
+} else if (pathname === '/input:tap-vm-video') {
       handleTap(res, 760, 370, 'Tapped vm-video.');
     } else if (pathname === '/input:tap-vm-vmp-continue') {
       handleTap(res, 530, 2050, 'Tapped on vm-vmp-continue.');
@@ -147,7 +85,6 @@ function startCommandServer(pageForTracing) {
     console.log('  - Send GET to /trace:start');
     console.log('  - Send GET to /trace:stop');
     console.log('  - Send GET to /navigate:refresh');
-    console.log('  - Send GET to /devtools:mobile');
     console.log('  - Send GET to /input:tap-vm-video');
     console.log('  - Send GET to /input:tap-vm-vmp-continue');
     console.log('  - Send GET to /input:tap-vm-vmp-rec');

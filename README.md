@@ -54,7 +54,6 @@ The command server runs on port `8080` and accepts the following commands:
 -   `/trace:start`: Starts a performance trace.
 -   `/trace:stop`: Stops the current trace.
 -   `/navigate:refresh`: Refreshes the current page.
--   `/devtools:mobile`: Opens a Chrome DevTools instance for the mobile device.
 -   `/input:tap-vm-video`: Sends a tap event for the VM video.
 -   `/input:tap-vm-vmp-continue`: Sends a tap event to continue in the VMP.
 -   `/input:tap-vm-vmp-rec`: Sends a tap event to record in the VMP.
@@ -132,16 +131,6 @@ While the main script (`npm start`, `npm run start:mobile`, or `npm run start:de
   ```
 
 Trace files will be saved in your project directory with progressive numbering (e.g., `trace-0.json`, `trace-1.json`).
-
-### 4. Open DevTools for Mobile
-
-You can open a new Chrome window with `chrome://inspect` to help with debugging mobile devices.
-
-- **To open DevTools:**
-
-  ```bash
-  npm run devtools:mobile
-  ```
 
 ## Enabling Memory Profiling on Mobile
 
