@@ -11,12 +11,16 @@
     "trace:start": "curl http://localhost:8080/trace:start",
     "trace:stop": "curl http://localhost:8080/trace:stop",
     "navigate:refresh": "curl http://localhost:8080/navigate:refresh",
+    "input:tap-vm-upload": "curl http://localhost:8080/input:tap-vm-upload",
     "input:tap-vm-video": "curl http://localhost:8080/input:tap-vm-video",
     "input:tap-vm-vmp-continue": "curl http://localhost:8080/input:tap-vm-vmp-continue",
     "input:tap-vm-vmp-rec": "curl http://localhost:8080/input:tap-vm-vmp-rec",
     "input:tap-vm-multivm-open": "curl http://localhost:8080/input:tap-vm-multivm-open",
     "input:tap-vm-multivm-close": "curl http://localhost:8080/input:tap-vm-multivm-close",
+    "profile:vm-tc01_tc04": "node profile.js vm_tc01_tc04",
+    "profile:vm-tc05_tc06": "node profile.js vm_tc05_tc06",
     "profile:vm-tc10": "node profile.js vm_tc10",
+    "profile:vm-tc13": "node profile.js vm_tc13",
     "format": "prettier --write ."
   },
   "dependencies": {

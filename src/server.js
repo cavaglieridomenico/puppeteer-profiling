@@ -1,8 +1,8 @@
 const http = require('http');
 const fs = require('fs');
 const { URL } = require('url');
-const { exec } = require('child_process');
 const path = require('path');
+const { COMMANDS } = require('./commands');
 const { handleTap } = require('./utils');
 
 let traceCounter = 0;
@@ -21,7 +21,7 @@ function startCommandServer(pageForTracing) {
     const requestUrl = new URL(req.url, `http://${req.headers.host}`);
     const { pathname } = requestUrl;
 
-    if (pathname === '/trace:start') {
+    if (pathname === COMMANDS.TRACE_START) {
       if (pageForTracing) {
         traceCounter = getNextTraceNumber();
         const tracePath = `trace-${traceCounter}.json`;
@@ -37,7 +37,7 @@ function startCommandServer(pageForTracing) {
         res.end('No page available for tracing.\n');
         console.log('No page available for tracing.');
       }
-    } else if (pathname === '/trace:stop') {
+    } else if (pathname === COMMANDS.TRACE_STOP) {
       if (pageForTracing) {
         console.log(`Tracing stopped... Saving...`);
         await pageForTracing.tracing.stop();
@@ -51,7 +51,7 @@ function startCommandServer(pageForTracing) {
           'No page available for tracing (was tracing ever started?).'
         );
       }
-    } else if (pathname === '/navigate:refresh') {
+    } else if (pathname === COMMANDS.NAVIGATE_REFRESH) {
       if (pageForTracing) {
         await pageForTracing.reload();
         res.writeHead(200, { 'Content-Type': 'text/plain' });
@@ -62,15 +62,17 @@ function startCommandServer(pageForTracing) {
         res.end('No page available for refreshing.\n');
         console.log('No page available for refreshing.');
       }
-    } else if (pathname === '/input:tap-vm-video') {
+    } else if (pathname === COMMANDS.INPUT_TAP_VM_UPLOAD) {
+      handleTap(res, 550, 370, 'Tapped vm-upload.');
+    } else if (pathname === COMMANDS.INPUT_TAP_VM_VIDEO) {
       handleTap(res, 760, 370, 'Tapped vm-video.');
-    } else if (pathname === '/input:tap-vm-vmp-continue') {
+    } else if (pathname === COMMANDS.INPUT_TAP_VM_CONTINUE) {
       handleTap(res, 530, 2050, 'Tapped on vm-vmp-continue.');
-    } else if (pathname === '/input:tap-vm-vmp-rec') {
+    } else if (pathname === COMMANDS.INPUT_TAP_VM_REC) {
       handleTap(res, 555, 2030, 'Tapped on vm-vmp-rec.');
-    } else if (pathname === '/input:tap-vm-multivm-open') {
+    } else if (pathname === COMMANDS.INPUT_TAP_MULTIVM_OPEN) {
       handleTap(res, 100, 1680, 'Tapped on vm-multivm-open.');
-    } else if (pathname === '/input:tap-vm-multivm-close') {
+    } else if (pathname === COMMANDS.INPUT_TAP_MULTIVM_CLOSE) {
       handleTap(res, 100, 1680, 'Tapped on vm-multivm-close.');
     } else {
       res.writeHead(404, { 'Content-Type': 'text/plain' });
@@ -91,7 +93,6 @@ function startCommandServer(pageForTracing) {
     console.log('  - Send GET to /input:tap-vm-vmp-rec');
     console.log('  - Send GET to /input:tap-vm-multivm-open');
     console.log('  - Send GET to /input:tap-vm-multivm-close');
-    console.log('  - Send GET to /profile:vm-tc10');
   });
 }
 

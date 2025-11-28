@@ -4,11 +4,24 @@ const testCases = {
     { command: 'navigate:refresh', delay: 20000 },
     { command: 'trace:stop', delay: 0 },
   ],
+  vm_tc05_tc06: [
+    { command: 'trace:start', delay: 2000 },
+    { command: 'input:tap-vm-multivm-open', delay: 13000 },
+    { command: 'input:tap-vm-multivm-close', delay: 5000 },
+    { command: 'trace:stop', delay: 0 },
+  ],
   vm_tc10: [
     { command: 'input:tap-vm-video', delay: 2000 },
     { command: 'input:tap-vm-vmp-continue', delay: 5000 },
     { command: 'trace:start', delay: 3000 },
     { command: 'input:tap-vm-vmp-rec', delay: 50000 },
+    { command: 'trace:stop', delay: 0 },
+  ],
+  vm_tc13: [
+    { command: 'trace:start', delay: 3000 },
+    { command: 'input:tap-vm-upload', delay: 2000 },
+    { command: 'input:tap-vm-vmp-continue', delay: 5000 },
+    { command: 'input:tap-vm-vmp-continue', delay: 12000 },
     { command: 'trace:stop', delay: 0 },
   ],
 };
