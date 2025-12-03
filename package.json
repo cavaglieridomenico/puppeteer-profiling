@@ -11,6 +11,7 @@
     "trace:start": "curl http://localhost:8080/trace:start",
     "trace:stop": "curl http://localhost:8080/trace:stop",
     "navigate:refresh": "curl http://localhost:8080/navigate:refresh",
+    "navigate:url": "node navigate.js",
     "input:tap-vm-upload": "curl http://localhost:8080/input:tap-vm-upload",
     "input:tap-vm-video": "curl http://localhost:8080/input:tap-vm-video",
     "input:tap-vm-vmp-continue": "curl http://localhost:8080/input:tap-vm-vmp-continue",

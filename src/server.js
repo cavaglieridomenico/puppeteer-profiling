@@ -62,6 +62,24 @@ function startCommandServer(pageForTracing) {
         res.end('No page available for refreshing.\n');
         console.log('No page available for refreshing.');
       }
+    } else if (pathname === COMMANDS.NAVIGATE_URL) {
+      if (pageForTracing) {
+        const urlToNavigate = requestUrl.searchParams.get('url');
+        if (urlToNavigate) {
+          await pageForTracing.goto(urlToNavigate);
+          res.writeHead(200, { 'Content-Type': 'text/plain' });
+          res.end(`Navigated to ${urlToNavigate}.\n`);
+          console.log(`Navigated to ${urlToNavigate}.`);
+        } else {
+          res.writeHead(400, { 'Content-Type': 'text/plain' });
+          res.end('No URL provided.\n');
+          console.log('No URL provided for navigation.');
+        }
+      } else {
+        res.writeHead(404, { 'Content-Type': 'text/plain' });
+        res.end('No page available for navigation.\n');
+        console.log('No page available for navigation.');
+      }
     } else if (pathname === COMMANDS.INPUT_TAP_VM_UPLOAD) {
       handleTap(res, 550, 370, 'Tapped vm-upload.');
     } else if (pathname === COMMANDS.INPUT_TAP_VM_VIDEO) {
@@ -94,6 +112,7 @@ function startCommandServer(pageForTracing) {
     console.log('  - Send GET to /trace:start');
     console.log('  - Send GET to /trace:stop');
     console.log('  - Send GET to /navigate:refresh');
+    console.log('  - Send GET to /navigate:url?url=<URL>');
     console.log('  - Send GET to /input:tap-vm-video');
     console.log('  - Send GET to /input:tap-vm-vmp-continue');
     console.log('  - Send GET to /input:tap-vm-vmp-rec');

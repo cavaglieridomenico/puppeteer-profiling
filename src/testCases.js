@@ -32,13 +32,13 @@ const testCases = {
   vmcore_tc30: [
     { command: 'input:tap-vmcore-vmp-pdplight', delay: 4000 },
     { command: 'trace:start', delay: 3000 },
-    { command: 'input:tap-vmcore-vmp-rec', delay: 40000 },
+    { command: 'input:tap-vmcore-vmp-rec', delay: 50000 },
     { command: 'trace:stop', delay: 0 },
   ],
   vmcore_tc31: [
     { command: 'input:tap-vmcore-vmp-pdplight', delay: 4000 },
     { command: 'trace:start', delay: 3000 },
-    { command: 'input:tap-vmcore-vmp-image', delay: 40000 },
+    { command: 'input:tap-vmcore-vmp-image', delay: 12000 },
     { command: 'trace:stop', delay: 0 },
   ],
 };
