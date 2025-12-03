@@ -24,6 +24,23 @@ const testCases = {
     { command: 'input:tap-vm-vmp-continue', delay: 12000 },
     { command: 'trace:stop', delay: 0 },
   ],
+  vmcore_tc29: [
+    { command: 'trace:start', delay: 3000 },
+    { command: 'input:tap-vmcore-vmp-pdplight', delay: 10000 },
+    { command: 'trace:stop', delay: 0 },
+  ],
+  vmcore_tc30: [
+    { command: 'input:tap-vmcore-vmp-pdplight', delay: 4000 },
+    { command: 'trace:start', delay: 3000 },
+    { command: 'input:tap-vmcore-vmp-rec', delay: 40000 },
+    { command: 'trace:stop', delay: 0 },
+  ],
+  vmcore_tc31: [
+    { command: 'input:tap-vmcore-vmp-pdplight', delay: 4000 },
+    { command: 'trace:start', delay: 3000 },
+    { command: 'input:tap-vmcore-vmp-image', delay: 40000 },
+    { command: 'trace:stop', delay: 0 },
+  ],
 };
 
 module.exports = { testCases };

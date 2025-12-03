@@ -74,6 +74,12 @@ function startCommandServer(pageForTracing) {
       handleTap(res, 100, 1680, 'Tapped on vm-multivm-open.');
     } else if (pathname === COMMANDS.INPUT_TAP_MULTIVM_CLOSE) {
       handleTap(res, 100, 1680, 'Tapped on vm-multivm-close.');
+    } else if (pathname === COMMANDS.INPUT_TAP_VMCORE_VMP_PDPLIGHT) {
+      handleTap(res, 540, 1240, 'Tapped on vmcore-vmp-pdplight.');
+    } else if (pathname === COMMANDS.INPUT_TAP_VMCORE_VMP_REC) {
+      handleTap(res, 100, 2040, 'Tapped on vmcore-vmp-rec.');
+    } else if (pathname === COMMANDS.INPUT_TAP_VMCORE_VMP_IMAGE) {
+      handleTap(res, 100, 1460, 'Tapped on vmcore-vmp-image.');
     } else {
       res.writeHead(404, { 'Content-Type': 'text/plain' });
       res.end(
@@ -93,6 +99,9 @@ function startCommandServer(pageForTracing) {
     console.log('  - Send GET to /input:tap-vm-vmp-rec');
     console.log('  - Send GET to /input:tap-vm-multivm-open');
     console.log('  - Send GET to /input:tap-vm-multivm-close');
+    console.log('  - Send GET to /input:tap-vmcore-vmp-pdplight');
+    console.log('  - Send GET to /input:tap-vmcore-vmp-rec');
+    console.log('  - Send GET to /input:tap-vmcore-vmp-image');
   });
 }
 
