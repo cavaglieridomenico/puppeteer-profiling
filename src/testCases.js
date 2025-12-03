@@ -21,24 +21,28 @@ const testCases = {
     { command: 'trace:start', delay: 3000 },
     { command: 'input:tap-vm-upload', delay: 2000 },
     { command: 'input:tap-vm-vmp-continue', delay: 5000 },
-    { command: 'input:tap-vm-vmp-continue', delay: 12000 },
+    { command: 'input:tap-vm-vmp-continue', delay: 15000 },
     { command: 'trace:stop', delay: 0 },
   ],
-  vmcore_tc29: [
+  vmcore_tc19: [
     { command: 'trace:start', delay: 3000 },
     { command: 'input:tap-vmcore-vmp-pdplight', delay: 10000 },
     { command: 'trace:stop', delay: 0 },
   ],
-  vmcore_tc30: [
+  vmcore_tc20: [
     { command: 'input:tap-vmcore-vmp-pdplight', delay: 4000 },
     { command: 'trace:start', delay: 3000 },
     { command: 'input:tap-vmcore-vmp-rec', delay: 50000 },
     { command: 'trace:stop', delay: 0 },
   ],
-  vmcore_tc31: [
+  vmcore_tc21: [
+    { command: 'trace:start', delay: 10000 },
+    { command: 'trace:stop', delay: 0 },
+  ],
+  vmcore_tc22: [
     { command: 'input:tap-vmcore-vmp-pdplight', delay: 4000 },
     { command: 'trace:start', delay: 3000 },
-    { command: 'input:tap-vmcore-vmp-image', delay: 12000 },
+    { command: 'input:tap-vmcore-vmp-image', delay: 15000 },
     { command: 'trace:stop', delay: 0 },
   ],
 };

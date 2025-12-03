@@ -25,9 +25,10 @@
     "profile:vm-tc05_tc06": "node profile.js vm_tc05_tc06",
     "profile:vm-tc10": "node profile.js vm_tc10",
     "profile:vm-tc13": "node profile.js vm_tc13",
-    "profile:vmcore-tc29": "node profile.js vmcore_tc29",
-    "profile:vmcore-tc30": "node profile.js vmcore_tc30",
-    "profile:vmcore-tc31": "node profile.js vmcore_tc31",
+    "profile:vmcore-tc19": "node profile.js vmcore_tc19",
+    "profile:vmcore-tc20": "node profile.js vmcore_tc20",
+    "profile:vmcore-tc21": "node profile.js vmcore_tc21",
+    "profile:vmcore-tc22": "node profile.js vmcore_tc22",
     "format": "prettier --write ."
   },
   "dependencies": {
