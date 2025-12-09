@@ -1,27 +1,27 @@
 const testCases = {
-  vm_tc01_tc04: [
+  vmmv_tc01_tc04: [
     { command: 'trace:start', delay: 2000 },
     { command: 'navigate:refresh', delay: 20000 },
     { command: 'trace:stop', delay: 0 },
   ],
-  vm_tc05_tc06: [
+  vmmv_tc05_tc06: [
     { command: 'trace:start', delay: 2000 },
-    { command: 'input:tap-vm-multivm-open', delay: 13000 },
-    { command: 'input:tap-vm-multivm-close', delay: 5000 },
+    { command: 'input:tap-vmmv-multivm-open', delay: 13000 },
+    { command: 'input:tap-vmmv-multivm-close', delay: 5000 },
     { command: 'trace:stop', delay: 0 },
   ],
-  vm_tc10: [
-    { command: 'input:tap-vm-video', delay: 2000 },
-    { command: 'input:tap-vm-vmp-continue', delay: 5000 },
+  vmmv_tc10: [
+    { command: 'input:tap-vmmv-video', delay: 2000 },
+    { command: 'input:tap-vmmv-vmp-continue', delay: 5000 },
     { command: 'trace:start', delay: 3000 },
-    { command: 'input:tap-vm-vmp-rec', delay: 50000 },
+    { command: 'input:tap-vmmv-vmp-rec', delay: 50000 },
     { command: 'trace:stop', delay: 0 },
   ],
-  vm_tc13: [
+  vmmv_tc13: [
     { command: 'trace:start', delay: 3000 },
-    { command: 'input:tap-vm-upload', delay: 2000 },
-    { command: 'input:tap-vm-vmp-continue', delay: 5000 },
-    { command: 'input:tap-vm-vmp-continue', delay: 15000 },
+    { command: 'input:tap-vmmv-upload', delay: 2000 },
+    { command: 'input:tap-vmmv-vmp-continue', delay: 5000 },
+    { command: 'input:tap-vmmv-vmp-continue', delay: 15000 },
     { command: 'trace:stop', delay: 0 },
   ],
   vmcore_tc19: [
