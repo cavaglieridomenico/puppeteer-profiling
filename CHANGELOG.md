@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 1.3.0
+
+### Added
+
+- Added logic and command list for semi-automated profiling
+
 ## 1.2.5
 
 ### Added

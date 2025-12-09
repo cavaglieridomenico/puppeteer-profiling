@@ -6,14 +6,17 @@ This project provides a setup to connect Puppeteer to a Chrome instance running 
 
 Before you begin, ensure you have the following installed:
 
-- **Node.js and npm:** [Download and install Node.js](https://nodejs.org/en/download/)
-- **Android Debug Bridge (ADB):** Part of the Android SDK Platform-Tools. Ensure `adb` is accessible in your system's PATH.
-  - If `adb` is not in your PATH, you will need to navigate to the `platform-tools` directory within the Android SDK to run `adb` commands. For example:
-    ```bash
-    C:\> cd path\to\android-sdk\platform-tools
-    ```
-  - **PowerShell users:** If you are using PowerShell, you may need to run `adb` commands by prefixing them with `.\` (e.g., `.\adb devices`).
-- **A physical Android device:** With USB debugging enabled and connected to your computer.
+- **Node.js and npm:** [Download and install Node.js](https://nodejs.org/en/download/) (Version 18.17.0 or higher is required for Puppeteer).
+- **Android Debug Bridge (ADB):** You do **not** need the full Android SDK.
+  - **Download:** Get the standalone **SDK Platform-Tools** package for your OS from the [official Google developer site](https://developer.android.com/tools/releases/platform-tools).
+  - **Install:** Extract the folder to a known location (e.g., `C:\platform-tools`).
+  - **Configuration:** The project looks for `adb` in the following order:
+    1.  **`ADB_PATH` (Recommended):** Set this environment variable to your specific executable path (e.g., `set ADB_PATH=C:\platform-tools\adb.exe`).
+    2.  **System PATH:** If you added the folder to your global PATH.
+    3.  **Android SDK:** Checks `ANDROID_HOME` or `ANDROID_SDK_ROOT` if a full SDK is present.
+  - **PowerShell Users:** If running commands manually from the platform-tools folder, you may need to prefix them with `.\` (e.g., `.\adb devices`).
+- **A physical Android device:** With **USB debugging enabled** and connected to your computer.
+  - _Note:_ Ensure Chrome is installed and running on the device before starting the script.
 
 ## Setup
 
@@ -28,7 +31,7 @@ Before you begin, ensure you have the following installed:
     Ensure your Android device is connected via USB and USB debugging is enabled. Verify it's recognized by ADB:
 
     ```bash
-    .\adb devices
+    adb devices
     ```
 
     You should see your device listed.
@@ -38,7 +41,7 @@ Before you begin, ensure you have the following installed:
     This command forwards the Chrome DevTools port from your Android device to your local machine (port 9222). This is only required if you intend to use the `mobile` mode.
 
     ```bash
-    .\adb forward tcp:9222 localabstract:chrome_devtools_remote
+    adb forward tcp:9222 localabstract:chrome_devtools_remote
     ```
 
     Keep this command running in a dedicated terminal or ensure it's executed before starting the `index.js` script in `mobile` mode.
@@ -46,19 +49,6 @@ Before you begin, ensure you have the following installed:
 ## Usage
 
 Once the setup is complete, you can use the `index.js` script to interact with Chrome on your Android device or a local desktop Chrome instance.
-
-## Command List
-
-The command server runs on port `8080` and accepts the following commands:
-
--   `/trace:start`: Starts a performance trace.
--   `/trace:stop`: Stops the current trace.
--   `/navigate:refresh`: Refreshes the current page.
--   `/input:tap-vm-video`: Sends a tap event for the VM video.
--   `/input:tap-vm-vmp-continue`: Sends a tap event to continue in the VMP.
--   `/input:tap-vm-vmp-rec`: Sends a tap event to record in the VMP.
--   `/input:tap-vm-multivm-open`: Sends a tap event to open the multi-VM view.
--   `/input:tap-vm-multivm-close`: Sends a tap event to close the multi-VM view.
 
 ### 1. Start the Puppeteer connection and command server
 
@@ -82,57 +72,15 @@ You can start the script in either **mobile** or **desktop** mode. The command s
 
 The script will keep the connection alive. To stop it, press `Ctrl+C`.
 
-### 2. Navigate to a specific URL (Optional)
-
-You can instruct the script to open a new tab and navigate to a specific URL.
-
-- **Mobile Mode with URL:**
-
-  ```bash
-  npm run start:mobile -- http://example.com
-  ```
-
-- **Desktop Mode with URL:**
-  ```bash
-  npm run start:desktop -- http://example.com
-  ```
-
-### 3. Control Tracing and Input (from a **second terminal**)
+### 2. Control Tracing and Input (from a **second terminal**)
 
 While the main script (`npm start`, `npm run start:mobile`, or `npm run start:desktop`) is running in your first terminal, you can use a second terminal to send commands to start and stop performance tracing, and to send input events.
 
-- **To start a trace:**
-
-  ```bash
-  npm run trace:start
-  ```
-
-- **To stop a trace:**
-  ```bash
-  npm run trace:stop
-  ```
-
-- **To send a tap event for VM video:**
-
-  ```bash
-  npm run input:tap-vm-video
-  ```
-
-- **To send a tap event to continue in the VMP:**
-
-  ```bash
-  npm run input:tap-vm-vmp-continue
-  ```
-
-- **To send a tap event to record in the VMP:**
-
-  ```bash
-  npm run input:tap-vm-vmp-rec
-  ```
+> **Tip:** Refer to the `scripts` section in `package.json` for a complete list of all available manual and semi-automated commands (e.g., `npm run input:tap-vmmv-video`).
 
 Trace files will be saved in your project directory with progressive numbering (e.g., `trace-0.json`, `trace-1.json`).
 
-## Enabling Memory Profiling on Mobile
+## Enabling Memory Profiling on Android device
 
 For mobile devices, you need to manually enable memory profiling in Chrome before you can capture a trace with heap data. Here are the steps:
 
