@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 1.3.1
+
+### Added
+
+- Added new commands and tested cases
+
 ## 1.3.0
 
 ### Added
