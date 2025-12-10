@@ -10,6 +10,11 @@ const testCases = {
     { command: 'input:tap-vmmv-multivm-close', delay: 5000 },
     { command: 'trace:stop', delay: 0 },
   ],
+  vmmv_tc09: [
+    { command: 'trace:start', delay: 2000 },
+    { command: 'navigate:refresh', delay: 20000 },
+    { command: 'trace:stop', delay: 0 },
+  ],
   vmmv_tc10: [
     { command: 'input:tap-vmmv-video', delay: 2000 },
     { command: 'input:tap-vmmv-vmp-continue', delay: 5000 },

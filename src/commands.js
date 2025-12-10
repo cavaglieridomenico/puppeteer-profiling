@@ -14,6 +14,8 @@ const COMMANDS = {
   INPUT_TAP_VMMV_REC: '/input:tap-vmmv-vmp-rec',
   INPUT_TAP_VMMV_MULTIVM_OPEN: '/input:tap-vmmv-multivm-open',
   INPUT_TAP_VMMV_MULTIVM_CLOSE: '/input:tap-vmmv-multivm-close',
+  INPUT_TAP_VMMV_CLOSE: '/input:tap-vmmv-close',
+  INPUT_TAP_VMMV_WIDGET: '/input:tap-vmmv-widget',
   INPUT_TAP_VMCORE_VMP_PDPLIGHT: '/input:tap-vmcore-vmp-pdplight',
   INPUT_TAP_VMCORE_VMP_REC: '/input:tap-vmcore-vmp-rec',
   INPUT_TAP_VMCORE_VMP_IMAGE: '/input:tap-vmcore-vmp-image',

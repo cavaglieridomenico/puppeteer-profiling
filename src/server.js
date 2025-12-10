@@ -98,7 +98,11 @@ function startCommandServer(pageForTracing) {
     } else if (pathname === COMMANDS.INPUT_TAP_VMMV_MULTIVM_OPEN) {
       handleTap(res, 100, 1680, 'Tapped on vmmv-multivm-open.');
     } else if (pathname === COMMANDS.INPUT_TAP_VMMV_MULTIVM_CLOSE) {
-      handleTap(res, 100, 1680, 'Tapped on vmmv-multivm-close.');
+      handleTap(res, 100, 1680, 'Tapped on vmmv-close.');
+    } else if (pathname === COMMANDS.INPUT_TAP_VMMV_CLOSE) {
+      handleTap(res, 980, 360, 'Tapped on vmmv-close.');
+    } else if (pathname === COMMANDS.INPUT_TAP_VMMV_WIDGET) {
+      handleTap(res, 550, 850, 'Tapped on vmmv-widget.');
     } else if (pathname === COMMANDS.INPUT_TAP_VMCORE_VMP_PDPLIGHT) {
       handleTap(res, 540, 1240, 'Tapped on vmcore-vmp-pdplight.');
     } else if (pathname === COMMANDS.INPUT_TAP_VMCORE_VMP_REC) {
@@ -120,11 +124,13 @@ function startCommandServer(pageForTracing) {
     console.log('  - Send GET to /trace:stop');
     console.log('  - Send GET to /navigate:refresh');
     console.log('  - Send GET to /navigate:url?url=<URL>');
-    console.log('  - Send GET to /input:tap-vm-video');
-    console.log('  - Send GET to /input:tap-vm-vmp-continue');
-    console.log('  - Send GET to /input:tap-vm-vmp-rec');
-    console.log('  - Send GET to /input:tap-vm-multivm-open');
-    console.log('  - Send GET to /input:tap-vm-multivm-close');
+    console.log('  - Send GET to /input:tap-vmmv-video');
+    console.log('  - Send GET to /input:tap-vmmv-vmp-continue');
+    console.log('  - Send GET to /input:tap-vmmv-vmp-rec');
+    console.log('  - Send GET to /input:tap-vmmv-multivm-open');
+    console.log('  - Send GET to /input:tap-vmmv-multivm-close');
+    console.log('  - Send GET to /input:tap-vmmv-close');
+    console.log('  - Send GET to /input:tap-vmmv-widget');
     console.log('  - Send GET to /input:tap-vmcore-vmp-pdplight');
     console.log('  - Send GET to /input:tap-vmcore-vmp-rec');
     console.log('  - Send GET to /input:tap-vmcore-vmp-image');
