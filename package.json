@@ -7,6 +7,8 @@
     "test": "echo \"No test specified\"",
     "start": "node index.js",
     "start:mobile": "node index.js mobile",
+    "start:mobile:vmcore": "cross-env PUPPETEER_ENV=vmcore node index.js mobile",
+    "start:mobile:pdwuat": "cross-env PUPPETEER_ENV=pdwuat node index.js mobile",
     "start:desktop": "node index.js desktop",
     "trace:start": "curl http://localhost:8080/trace:start",
     "trace:stop": "curl http://localhost:8080/trace:stop",
@@ -35,6 +37,7 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "dotenv": "^17.2.3",
     "puppeteer": "24.28.0"
   },
   "keywords": [],
@@ -42,6 +45,7 @@
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
+    "cross-env": "^10.1.0",
     "prettier": "^3.6.2"
   }
 }

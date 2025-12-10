@@ -1,9 +1,16 @@
+const path = require('path');
+const env = process.env.PUPPETEER_ENV;
+const envPath = env
+  ? path.resolve(process.cwd(), `.env.${env}`)
+  : path.resolve(process.cwd(), '.env');
+
+require('dotenv').config({ path: envPath });
+
 const http = require('http');
 const fs = require('fs');
 const { URL } = require('url');
-const path = require('path');
 const { COMMANDS } = require('./commands');
-const { handleTap } = require('./utils');
+const { handleTap, handleNavigation } = require('./utils');
 
 let traceCounter = 0;
 let traceName = '';
@@ -73,10 +80,7 @@ function startCommandServer(pageForTracing) {
       if (pageForTracing) {
         const urlToNavigate = requestUrl.searchParams.get('url');
         if (urlToNavigate) {
-          await pageForTracing.goto(urlToNavigate);
-          res.writeHead(200, { 'Content-Type': 'text/plain' });
-          res.end(`Navigated to ${urlToNavigate}.\n`);
-          console.log(`Navigated to ${urlToNavigate}.`);
+          await handleNavigation(pageForTracing, urlToNavigate, res);
         } else {
           res.writeHead(400, { 'Content-Type': 'text/plain' });
           res.end('No URL provided.\n');
