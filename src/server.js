@@ -10,7 +10,7 @@ const http = require('http');
 const fs = require('fs');
 const { URL } = require('url');
 const { COMMANDS } = require('./commands');
-const { handleTap, handleNavigation } = require('./utils');
+const { handleTap, handleNavigation, handleCleanState } = require('./utils');
 
 let traceCounter = 0;
 let traceName = '';
@@ -65,6 +65,8 @@ function startCommandServer(pageForTracing) {
           'No page available for tracing (was tracing ever started?).'
         );
       }
+    } else if (pathname === COMMANDS.DEVICE_CLEAN_STATE) {
+      await handleCleanState(pageForTracing, res);
     } else if (pathname === COMMANDS.NAVIGATE_REFRESH) {
       if (pageForTracing) {
         await pageForTracing.reload();

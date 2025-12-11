@@ -3,6 +3,9 @@ const COMMANDS = {
   TRACE_START: '/trace:start',
   TRACE_STOP: '/trace:stop',
 
+  // Maintenance
+  DEVICE_CLEAN_STATE: '/device:clean-state',
+
   // Navigation
   NAVIGATE_REFRESH: '/navigate:refresh',
   NAVIGATE_URL: '/navigate:url',

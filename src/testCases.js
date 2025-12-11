@@ -31,11 +31,11 @@ const testCases = {
   ],
   vmcore_vmp_tc19: [
     { command: 'trace:start', delay: 3000 },
-    { command: 'input:tap-vmcore-vmp-pdplight', delay: 10000 },
+    { command: 'input:tap-vmcore-vmp-pdplight', delay: 12000 },
     { command: 'trace:stop', delay: 0 },
   ],
   vmcore_vmp_tc19_01: [
-    { command: 'input:tap-vmcore-vmp-pdplight', delay: 4000 },
+    { command: 'input:tap-vmcore-vmp-pdplight', delay: 14000 },
     { command: 'trace:start', delay: 3000 },
     { command: 'input:tap-vmcore-vmp-rec', delay: 50000 },
     { command: 'trace:stop', delay: 0 },
